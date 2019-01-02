@@ -1,5 +1,7 @@
 package task9b
 
+import kotlin.system.measureTimeMillis
+
 data class Link(val value: Long, var next: Link?, var prev: Link?)
 
 fun addMarble(m: MutableList<Link>, link: Link, value: Long): Link {
@@ -15,7 +17,7 @@ fun removeMarble(link: Link) {
     link.prev!!.next = link.next
 }
 
-fun main(args: Array<String>) {
+fun solve() {
     val players = 459
     val lastMarble = 7132000
 
@@ -35,4 +37,9 @@ fun main(args: Array<String>) {
         }
     }
     println(points.max())
+}
+
+fun main(args: Array<String>) {
+    val x = measureTimeMillis { solve() }
+    println("Runtime: $x ms")
 }
